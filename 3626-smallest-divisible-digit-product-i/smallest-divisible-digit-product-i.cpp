@@ -1,16 +1,18 @@
 class Solution {
 public:
     int smallestNumber(int n, int t) {
-        /*int low=n;
+        /* binary search invalid
+        int low=n;
         int high= 2*n;
         int ans=1;
         while(low<=high){
             int pdt=1;
             int mid= low+(high-low)/2;
-            while(mid>0){
-                int ld= mid%10;
+            int temp=mid;
+            while(temp>0){
+                int ld= temp%10;
                 pdt *=ld;
-                mid/=10;
+                temp/=10;
             }
             if(pdt%t==0) {
              ans=mid;
@@ -20,7 +22,7 @@ public:
             
         }
         return ans;*/
-        int temp=n;
+        int temp=n;      //optimal 
         int pdt=1;
         while(n>0){
             int ld=n%10;

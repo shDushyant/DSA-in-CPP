@@ -21,25 +21,20 @@ public:
         }
         maxcnt= max(cnt,maxcnt);
         return maxcnt;   */
-
-        int i = 0, j = 0;
-        int maxcnt = 0;
-
-        unordered_map<char, int> mpp;
-
-        while (j < s.length()) {
-
-            mpp[s[j]]++;
-
-            while (mpp[s[j]] > 1) {
-                mpp[s[i]]--;
-                i++;
+        vector<int>hash(256,-1);
+        int len=0;
+        int l=0,r=0;
+        int maxi=0;
+        while(r<s.size()){
+            if(hash[s[r]]!=-1){
+                if(hash[s[r]]>=l) l= hash[s[r]]+1;
             }
-
-            maxcnt = max(maxcnt, j - i + 1);
-            j++;
+        
+        len= r-l+1;
+        maxi=max(maxi,len);
+        hash[s[r]]=r;
+        r++; 
         }
-
-        return maxcnt;
+        return maxi;
     }      
 };

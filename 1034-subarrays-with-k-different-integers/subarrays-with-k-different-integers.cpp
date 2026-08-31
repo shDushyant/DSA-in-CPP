@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int atMost(vector<int>&nums,int k){
+    int goodArray(vector<int>&nums,int k){
        int l=0,r=0,cnt=0;
         unordered_map<int,int>mpp;
         while(r<nums.size()){
@@ -27,6 +27,6 @@ public:
         }
         return cnt;*/
         
-        return atMost(nums,k)-atMost(nums,k-1);
+        return goodArray(nums,k)-goodArray(nums,k-1);
     }
 };

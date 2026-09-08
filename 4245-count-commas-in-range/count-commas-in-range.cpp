@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countCommas(int n) {
-        int commas=0;
+        /*int commas=0;
         for(int i=1;i<=n;i++){
         int cnt=0;
         int temp=i;
@@ -12,6 +12,8 @@ public:
             temp/=10;
         }
         }
-        return commas;
+        return commas;*/
+        if(n>=1000) return n-1000+1;
+        else return 0;
     }
 };

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> NSE(vector<int>& heights) {
+    /*vector<int> NSE(vector<int>& heights) {
         vector<int> nse(heights.size());
         stack<int> st;
 
@@ -44,6 +44,39 @@ public:
             maxi = max(maxi, heights[i] * (nse[i] - pse[i] - 1));
         }
 
-        return maxi;
+        return maxi;*/
+        int largestRectangleArea(vector<int>& heights) {
+    int maxi = 0;
+    stack<int> st;
+
+    for(int i = 0; i < heights.size(); i++) {
+
+        while(!st.empty() && heights[st.top()] >= heights[i]) {
+
+            int temp = st.top();
+            st.pop();
+
+            int nse = i;
+            int pse = st.empty() ? -1 : st.top();
+
+            maxi = max(maxi, heights[temp] * (nse - pse - 1));
+        }
+
+        st.push(i);
     }
+
+    // Process remaining elements
+    while(!st.empty()) {
+
+        int temp = st.top();
+        st.pop();
+
+        int nse = heights.size();
+        int pse = st.empty() ? -1 : st.top();
+
+        maxi = max(maxi, heights[temp] * (nse - pse - 1));
+    }
+
+    return maxi;
+}
 };

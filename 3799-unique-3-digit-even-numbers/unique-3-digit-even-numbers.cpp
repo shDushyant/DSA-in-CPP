@@ -2,7 +2,7 @@ class Solution {
 public:
     int totalNumbers(vector<int>& digits) {
         int cnt=0;
-        set<vector<int>>st;
+        set<vector<int>>st;      //to store unique 3 digit number 
         for(int i=0;i<digits.size();i++){
             if(digits[i]==0) continue;
             for(int j=0;j<digits.size();j++){

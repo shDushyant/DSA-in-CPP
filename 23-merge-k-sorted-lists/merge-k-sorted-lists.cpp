@@ -13,8 +13,8 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         vector<int>arr;
         for(int i=0;i<lists.size();i++){
-            //ListNode* head= lists[i];
-            ListNode* temp= lists[i];
+            ListNode* head= lists[i];
+            ListNode* temp= head;
             while(temp){
                 arr.push_back(temp->val);
                 temp=temp->next;

@@ -45,15 +45,15 @@ public:
         ListNode* res= dummy;
         while(l1 && l2){
             if(l1->val<=l2->val){
-                ListNode* n= new ListNode(l1->val);
-                res->next=n;
-                res= n;
+                //ListNode* n= new ListNode(l1->val);
+                res->next=l1;
+                res= l1;
                 l1=l1->next;
             }
             else{
-                ListNode* m= new ListNode(l2->val);
-                res->next=m;
-                res=m;
+               // ListNode* m= new ListNode(l2->val);
+                res->next=l2;
+                res=l2;
                 l2=l2->next;
             }
         }

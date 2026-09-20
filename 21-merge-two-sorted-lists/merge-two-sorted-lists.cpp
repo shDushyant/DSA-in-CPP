@@ -11,7 +11,8 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        vector<int>arr;
+        // see the constraints hence used brute force of union of  two sorted arrays   
+        /*vector<int>arr;
         while(l1 && l2){
              if(l1->val<=l2->val){
                arr.push_back(l1->val);
@@ -30,7 +31,7 @@ public:
                     arr.push_back(l1->val);
                     l1=l1->next;
                 }
-            if(arr.empty()) return NULL;
+            if(arr.empty()) return NULL;   // important case
 
         ListNode* head= new ListNode(arr[0]);
         ListNode* mover= head;
@@ -39,6 +40,29 @@ public:
             mover->next= temp;
             mover= mover->next;
         }
-        return head;
+        return head;*/
+        ListNode* dummy= new ListNode(-1);
+        ListNode* res= dummy;
+        while(l1 && l2){
+            if(l1->val<=l2->val){
+                ListNode* n= new ListNode(l1->val);
+                res->next=n;
+                res= n;
+                l1=l1->next;
+            }
+            else{
+                ListNode* m= new ListNode(l2->val);
+                res->next=m;
+                res=m;
+                l2=l2->next;
+            }
+        }
+            if(l1){
+                res->next=l1;
+            }
+            if(l2){
+                res->next=l2;
+            }
+        return dummy->next;
     }
 };

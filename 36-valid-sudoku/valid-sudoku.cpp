@@ -14,7 +14,7 @@ public:
             int r = 3 * (row / 3) + i / 3;
             int cl = 3 * (col / 3) + i % 3;
 
-            if ((r != row || cl != col) && board[r][cl] == c)
+            if ((r != row && cl != col) && board[r][cl] == c)
                 return false;
         }
         return true;
